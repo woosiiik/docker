@@ -76,7 +76,7 @@
 
 ### Docker hub
 ##### PUSH 로 도커 이미지 올리기
-Docker Hub에 이미지를 올릴 때는 이미지 이름을 [Docker Hub 사용자 계정]/[이미지 이름]:[태그] 형태로 생성해야 합니다.
+Docker Hub에 이미지를 올릴 때는 이미지 이름을 [Docker Hub 사용자 계정]/[이미지 이름]:[태그] 형태로 생성해야 합니다.  
     $ docker push woosiiik/uni-resolver-web
 
 
