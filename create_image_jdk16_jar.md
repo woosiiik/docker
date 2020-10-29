@@ -31,6 +31,10 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 myidIssuerVerifier-0.0.1-SNAPSHOT.jar 라는 Springboot jar를 app.jar 이라는 이름으로 도커 이미지에 포함하고, 이 이미지가 실행 될 때 java -jar app.jar 이 실행 되도록 했다.
 
+
+**새로운 도커 이미지를 만든다(woosiiik/jdk1.6.0_22_jar이라는 이름으로)**
+docker build -t woosiiik/jdk1.6.0_22_jar .
+
 **Docker 컨테이너를 만들면서 실행 한다**
 
 $ docker run -p 8080:8080 woosiiik/jdk1.6.0_22_jar
