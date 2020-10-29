@@ -34,7 +34,7 @@ myidIssuerVerifier-0.0.1-SNAPSHOT.jar 라는 Springboot jar를 app.jar 이라는
 
 **새로운 도커 이미지를 만든다(woosiiik/jdk1.6.0_22_jar이라는 이름으로)**
 
-docker build -t woosiiik/jdk1.6.0_22_jar .
+$ docker build -t woosiiik/jdk1.6.0_22_jar .
 
 **Docker 컨테이너를 만들면서 실행 한다**
 
