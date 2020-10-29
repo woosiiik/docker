@@ -35,3 +35,11 @@ myidIssuerVerifier-0.0.1-SNAPSHOT.jar 라는 Springboot jar를 app.jar 이라는
 
 $ docker run -p 8080:8080 woosiiik/jdk1.6.0_22_jar
 
+
+# 다른 방법
+아래와 같이 하는 방법도 가능할 것 같다.
+1. ubuntu 이미지를 받는다.
+2. ubuntu 이미지를 Container로 실행 한다.
+3. Container에서 jdk1.6을 설치한다.
+4. Container를 새로운 이미지로 만든다.
+5. 이후에 위의 첫번째 방법을 새로운 이미지로 시도한다. 
