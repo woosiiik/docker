@@ -51,12 +51,14 @@ $ docker run -p 8080:8080 woosiiik/jdk1.6.0_22_jar
 docker 이미지를 실행 한다. 
 
 
-실행중인 컨테이너에 파일 복사
+실행중인 컨테이너에 파일 복사 - 사용하는 라이브러리 (bcprov-jdk15on-1.60.jar)를 docker container(061112c37b2c)의 /home 에 복사한다. 
 ```
 docker cp bcprov-jdk15on-1.60.jar 061112c37b2c:/home/bcprov-jdk15on-1.60.jar
 ```
-jar 파일을 JRE의 lib/ext 에 복사
+docker container로 진입해서 jar 파일을 JRE의 lib/ext 에 복사
 ```
+docker attach 061112c37b2c
+# 도커 안에서 ..
 cd /usr/java/jdk1.6.0_22/jre/lib/ext
 cp /home/bcprov-jdk15on-1.60.jar .
 ```
