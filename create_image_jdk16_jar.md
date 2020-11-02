@@ -41,10 +41,42 @@ $ docker build -t woosiiik/jdk1.6.0_22_jar .
 $ docker run -p 8080:8080 woosiiik/jdk1.6.0_22_jar
 
 
-# 다른 방법
-아래와 같이 하는 방법도 가능할 것 같다.
-1. ubuntu 이미지를 받는다.
-2. ubuntu 이미지를 Container로 실행 한다.
-3. Container에서 jdk1.6을 설치한다.
-4. Container를 새로운 이미지로 만든다.
-5. 이후에 위의 첫번째 방법을 새로운 이미지로 시도한다. 
+# JDK1.6 도커 이미지에 bouncy castle 라이브러리 추가 하는 방법
+**JCE cannot authenticate the provider BC라는 에러가 발생 할 때**
+
+참고 : https://kwebtoon.tistory.com/38
+
+위 내용처럼 jre/lib/ext 에 bouncy castle 관련 라이브러리를 추가 하고, java.security 파일에 bouncy castle을 security provide로 등록한다.
+
+docker 이미지를 실행 한다. 
+
+
+실행중인 컨테이너에 파일 복사
+```
+docker cp bcprov-jdk15on-1.60.jar 061112c37b2c:/home/bcprov-jdk15on-1.60.jar
+```
+jar 파일을 JRE의 lib/ext 에 복사
+```
+cd /usr/java/jdk1.6.0_22/jre/lib/ext
+cp /home/bcprov-jdk15on-1.60.jar .
+```
+security 폴더로 이동
+```
+cd /usr/java/jdk1.6.0_22/jre/lib/security
+```
+편집
+```
+vi java.security
+```
+```
+security.provider.9=org.bouncycastle.jce.provider.BouncyCastleProvider
+```
+
+docker 에서 빠져나오기 (컨테이너 종료하지 않고)
+```
+ctrl + P, Q
+```
+컨테이너로 새로운 docker image 만들기
+```
+docker commit 061112c37b2c woosiiik/jdk6_add_bc
+```
