@@ -74,6 +74,8 @@ vi java.security
 security.provider.9=org.bouncycastle.jce.provider.BouncyCastleProvider
 ```
 
+**참고로 위 2가지 조치 중 java.security 만 적용해도 동작한다고 함**
+
 docker 에서 빠져나오기 (컨테이너 종료하지 않고)
 ```
 ctrl + P, Q
